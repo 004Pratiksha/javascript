@@ -70,7 +70,6 @@ setInterval(function () {
 }, 1000);
 ``````
 ## project4
-
 ````javascript
 
 let randomNumber = parseInt(Math.random() * 100 + 1);
@@ -165,5 +164,54 @@ function newGame() {
   });
 }
 
-
 ``````
+##project5
+````javascript
+const ramdomColor = function(){
+    const hex = "0123456789ABCDEFGH";
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += hex[Math.floor(Math.random()* 16)]
+    }
+    return color;
+};
+let intervalID;
+const startChangingColor = function() {
+    if (!intervalID){
+    intervalID = setInterval(changeBgColor, 1000);
+ }
+ function changeBgColor(){
+    document.body.style.backgroundColor = ramdomColor();
+ }
+};
+const stopChangingColor = function () {
+    clearInterval(intervalID);
+    intervalID = null;
+};
+document.querySelector('#start').addEventListener('click', startChangingColor);
+document.querySelector('#stop').addEventListener('click', stopChangingColor);
+``````
+
+##project6
+`````javascriptiSS
+const insert = document.getElementById('insert');
+
+window.addEventListener('keydown', (e) => {
+  insert.innerHTML = `
+    <div class='color'>
+    <table>
+    <tr>
+      <th>Key</th>
+      <th>Keycode</th> 
+      <th>Code</th>
+    </tr>
+    <tr>
+      <td>${e.key === ' ' ? 'Space' : e.key}</td>
+      <td>${e.keyCode}</td> 
+      <td>${e.code}</td>
+    </tr>
+    
+  </table>
+    </div>
+  `;
+});
